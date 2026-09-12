@@ -27,7 +27,8 @@ module.exports = async (request, response) => {
     }
 
     const data = await counterResponse.json();
-    const count = data.value ?? data.data?.value ?? data.data ?? data.count;
+    // CounterAPI V2 returns the accumulated increment total as data.up_count.
+    const count = data.data?.up_count ?? data.up_count ?? data.value ?? data.data?.value ?? data.data?.count ?? data.count;
 
     if (!Number.isFinite(Number(count))) {
       throw new Error("CounterAPI returned an invalid count");
