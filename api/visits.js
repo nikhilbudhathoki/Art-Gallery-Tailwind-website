@@ -6,12 +6,14 @@ module.exports = async (request, response) => {
 
   const { COUNTERAPI_API_KEY, COUNTERAPI_WORKSPACE } = process.env;
 
-  if (!COUNTERAPI_API_KEY || !COUNTERAPI_WORKSPACE) {
+  const workspaceName = COUNTERAPI_WORKSPACE?.trim();
+
+  if (!COUNTERAPI_API_KEY || !workspaceName) {
     return response.status(500).json({ error: "Counter is not configured" });
   }
 
   try {
-    const workspace = encodeURIComponent(COUNTERAPI_WORKSPACE);
+    const workspace = encodeURIComponent(workspaceName);
     const counterResponse = await fetch(
       `https://api.counterapi.dev/v2/${workspace}/gallery-visits/up`,
       { headers: { Authorization: `Bearer ${COUNTERAPI_API_KEY}` } },
