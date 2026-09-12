@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ranjita gallery</title>
+    <link rel="stylesheet" href="output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/YOUR_KIT_ID.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-[#F5F5F5]">
+    <nav
+      class="b h-min-16 p-2 flex items-center justify-center gap-4 fixed top-0 left-0 w-full shadow-md z-10"
+    >
+      <a href="gallery.html"
+        id="Home"
+        class="bg-[#2196F3] p-1 px-2 border rounded-sm hover:bg-[#007DCC] transition duration-300 hover:shadow-lg cursor-pointer"
+      >
+        Home
+  </a>
+      <a href="artportfolio.html"
+        id="ArtsPortfolio"
+        class="bg-[#2196F3] p-1 px-2 border rounded-sm hover:bg-[#007DCC] transition duration-300 hover:shadow-lg cursor-pointer"
+      >
+        Arts Portfolio
+</a>
+      <a href="contact.html"
+        id="Contact"
+        class="bg-[#2196F3] p-1 px-2 border rounded-sm hover:bg-[#007DCC] transition duration-300 hover:shadow-lg cursor-pointer"
+      >
+        Contact
+</a>
+    </nav>
+
+    
+
+   
+ 
+    <div id="formfull" class="md:grid md:grid-cols-12 mt-8">
+        <div id="Conshow" class="md:col-span-4 ">
+            <img src="resource/contactbg.jpg" alt="" class="p-8 h-0 w-0 md:block rounded-lg object-center md:h-full md:w-auto object-cover object-center cursor-grab" onclick="playSound()" />
+<audio id="clickSound" src="resource/birdsound.wav"></audio>
+
+
+        </div>
+
+        <div id="form" class="md:col-start-6 md:col-span-5 p-8 m-8">
+            <h2 class="text-2xl font-bold  text-center bg-gray-200 py-2">Get in Touch</h2>
+            <form class="bg-[#F2F2F2] p-6 rounded-lg shadow-md">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700">Name</label>
+                    <input type="text" id="name" class="border border-gray-300  bg-gray-200 p-2 my-0.5 rounded w-80">
+                </div>
+                <div id="num" class="mb-4">
+                    <label for="phone" class="block text-gray-700">Phone</label>
+                    <input type="number" id="phone" class="border border-gray-300  bg-gray-200 p-2 my-0.5 rounded">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700">Email</label>
+                    <input type="email" id="email" class="border border-gray-300  bg-gray-200 p-2 my-0.5 rounded w-100">
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700">Message</label>
+                    <textarea id="message" rows="4" class="border border-gray-300  bg-gray-200 p-2 my-0.5 rounded w-80"></textarea>
+                </div>
+                <button type="submit" class="bg-[#2196F3] text-white py-2 px-4 rounded-b-xl hover:bg-[#1a82d6] cursor-pointer transition-shadow duration-300 hover:scale-105">Send Message</button>
+            </form>
+        </div>
+
+    </div>
+    
+</body>
+
+
+<script>
+    function playSound() {
+  document.getElementById("clickSound").play();
+}
+</script>
+</html>
