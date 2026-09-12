@@ -177,6 +177,15 @@
   © 2026 Ranjita and Team. All rights reserved. <br>
   Website developed by Nikhil.
 </p>
+
+
+ <section class="mx-auto mt-8 mb-6 flex w-fit flex-col items-center rounded-2xl border border-gray-700 bg-gray-800 px-8 py-5 shadow-lg">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-200">Ranjita Arts</p>
+    <div id="counter" class="mt-2 text-3xl font-bold tabular-nums text-white" aria-live="polite">—</div>
+    <p class="mt-1 text-sm text-gray-300">site visits</p>
+  </section>
+
+
 </div>
       
 
@@ -276,6 +285,25 @@
       // bind click handler once, not via inline onclick
     });
 
+
+
+
+    // The Vercel API route keeps the CounterAPI token off the public website.
+    const counter = document.getElementById("counter");
+    fetch("/api/visits", {
+      method: "POST",
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Visit counter request failed");
+        return response.json();
+      })
+      .then((data) => {
+        counter.textContent = Number(data.count).toLocaleString();
+      })
+      .catch((error) => {
+        console.error("Counter error:", error);
+        counter.textContent = "Unavailable";
+      });
 
 
   </script>
