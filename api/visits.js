@@ -18,11 +18,16 @@ module.exports = async (request, response) => {
     );
 
     if (!counterResponse.ok) {
-      throw new Error(`CounterAPI returned ${counterResponse.status}`);
+      const details = await counterResponse.text();
+      console.error("CounterAPI rejected the request:", counterResponse.status, details);
+      return response.status(502).json({
+        error: "CounterAPI rejected the request",
+        counterApiStatus: counterResponse.status,
+      });
     }
 
     const data = await counterResponse.json();
-    const count = data.data ?? data.value ?? data.count;
+    const count = data.value ?? data.data?.value ?? data.data ?? data.count;
 
     if (!Number.isFinite(Number(count))) {
       throw new Error("CounterAPI returned an invalid count");
