@@ -15,7 +15,7 @@ module.exports = async (request, response) => {
   try {
     const workspace = encodeURIComponent(workspaceName);
     const counterResponse = await fetch(
-      `https://api.counterapi.dev/v2/${workspace}/gallery-visits/up`,
+      `https://api.counterapi.dev/v2/${workspace}/ranjita-visits/up`,
       { headers: { Authorization: `Bearer ${COUNTERAPI_API_KEY}` } },
     );
 
